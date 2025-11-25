@@ -41,8 +41,8 @@ public class HelmetSunProtection implements VisibleAbility, Listener {
                 player.getLocation().getBlock().getLightFromSky() >= 14;
     }
 
-    private boolean isInFire(Player player) {
-        return player.getLocation().getBlock().getType() == Material.FIRE;
+    private boolean isNotInFire(Player player) {
+        return player.getLocation().getBlock().getType() != Material.FIRE;
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -55,7 +55,7 @@ public class HelmetSunProtection implements VisibleAbility, Listener {
         }
 
         runForAbility(player, p -> {
-            if (p.isOnline() && isWearingProtectiveHelmet(p) && isInSunlight(p) && !isInFire(p)) {
+            if (p.isOnline() && isWearingProtectiveHelmet(p) && isInSunlight(p) && isNotInFire(p)) {
                 event.setCancelled(true);
                 p.setFireTicks(0);
             }
@@ -73,7 +73,7 @@ public class HelmetSunProtection implements VisibleAbility, Listener {
         }
 
         runForAbility(player, p -> {
-            if (p.isOnline() && isWearingProtectiveHelmet(p) && isInSunlight(p) && !isInFire(p)) {
+            if (p.isOnline() && isWearingProtectiveHelmet(p) && isInSunlight(p) && isNotInFire(p)) {
                 event.setCancelled(true);
                 p.setFireTicks(0);
             }
