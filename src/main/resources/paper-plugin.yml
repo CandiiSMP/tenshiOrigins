@@ -1,0 +1,13 @@
+name: tenshiOrigins
+version: '1.0-SNAPSHOT'
+main: com.tenshiku.tenshiOrigins.TenshiOrigins
+api-version: '1.21'
+authors: [ tenshiku ]
+description: Custom Origins Reborn plugin
+
+dependencies:
+  server:
+    Origins-Reborn:
+      load: BEFORE
+      required: true
+      join-classpath: true
